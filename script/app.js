@@ -1,6 +1,10 @@
 let btnPause, btnSlow, BtnNormal, btnFast;
 
 const animation = function () {
+  btnPause = document.querySelector(".js-pause");
+  btnSlow = document.querySelector(".js-slow");
+  BtnNormal = document.querySelector(".js-normal");
+  btnFast = document.querySelector(".js-fast");
   let tl = gsap.timeline({
     defaults: {
       duration: 0.75,
@@ -41,11 +45,14 @@ const button = function (tl) {
   };
 };
 
+const animationLightning = function () {
+  const lightningbtn = document.querySelector(".js-btn");
+  const lightning = document.getElementById("lightning");
+  lightningbtn.onclick = () => lightning.beginElement();
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("loaded");
-  btnPause = document.querySelector(".js-pause");
-  btnSlow = document.querySelector(".js-slow");
-  BtnNormal = document.querySelector(".js-normal");
-  btnFast = document.querySelector(".js-fast");
-  animation();
+  //   animation();
+  animationLightning();
 });

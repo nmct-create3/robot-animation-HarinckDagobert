@@ -8,8 +8,8 @@
 
 :root {
   /* Global colors */
-  --global-color-back: #6dbedf;
-  --global-color-front: white;
+  --global-color-back: white;
+  --global-color-front: black;
 
   /* global page settings */
   --global-html-color: var(--global-color-front);
@@ -134,6 +134,39 @@ body {
     Component: Robot
 */
 
+.c-loader{
+  max-width: 300px;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.c-loader__circle{
+  stroke: blue;
+  fill: transparent;
+  stroke-width: 5px;
+  stroke-linecap: 10px;
+  stroke-dasharray: 20px 100px;
+  stroke-dashoffset: 0px;
+  transform-origin: center;
+  animation: rotateCircle calc(2s) linear infinite, strokeCircle 0.75s infinite;;
+}
+
+@keyframes rotateCircle {
+  100% {
+  transform: rotate(360deg);
+  }
+}
+
+@keyframes strokeCircle {
+  100% {
+    stroke-dasharray: 60px 100px;
+
+  }
+}
 .c-robot {
   max-width: 300px;
   fill: var(--global-color-front);
@@ -269,8 +302,6 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
