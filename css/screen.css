@@ -34,6 +34,8 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color)
 }
 
 *,
@@ -133,16 +135,143 @@ body {
 */
 
 .c-robot {
+  max-width: 300px;
+  fill: var(--global-color-front);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .c-robot__shadow {
+  fill: black;
+  opacity: .4;
 }
 
 
 /*
     Component: Controls
 */
+.c-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  gap: 2rem;
+}
+.c-controls {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
 
+.c-controls__button{
+  font-weight: 600;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 8px;
+  padding-bottom: .5rem;
+  border-radius: 1rem
+  
+}
+.c-controls__list {
+  display: flex;
+  gap: 2rem;
+}
+.c-controls__radio:checked+.c-controls__button {
+  background-color: rgb(103, 167, 191);
+}
+
+.c-controls__button:hover {
+  background-color: rgb(103, 167, 191);
+}
+
+.c-controls__button:focus {
+  border: solid 1.5px rgb(103, 167, 191);
+}
+.c-play-icon--play {
+  display: none;
+}
+
+.is-paused .c-play-icon--pause {
+  display: none;
+}
+
+.is-paused .c-play-icon--play {
+  display: block;
+}
+
+.c-controls__radio {
+  display: none;
+}
+
+.c-controls-button {
+
+}
+
+@keyframes shadowPulse {
+  100% {
+    transform: scale(0.75);
+    
+  }
+}
+
+@keyframes robotHover {
+  0% {
+    transform: translateY(2.5);
+    
+  }
+  100%{
+    transform: translateY(-2.5%);
+
+  }
+}
+
+.c-robot--css-anim{
+  --c-robot-animation-duration: 0.75s;
+  --c-robot-animation-timing-function: ease-in-out;
+  --c-robot-animation-iteration-count: infinite;
+  --c-robot-animation-direction: alternate;
+}
+
+.c-robot--css-anim #Shadow {
+  transform-origin: 50% 100%;
+  animation-name: shadowPulse;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+  
+}
+
+.c-robot--css-anim #Robot {
+  transform-origin: 50% 100%;
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+}
+
+#svg {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  left: 0%;
+  top: 0%;
+  display: block;
+  background: transparent;
+}
+
+.path {
+  stroke: black;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
